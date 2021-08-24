@@ -1,17 +1,17 @@
-// import { Router } from "express";
+import { Router } from "express";
 
-// import * as authorsHandlers from "./handlers.js";
+import * as handlers from "./handlers.js";
 
-// const route = Router();
+const route = Router();
 
-// route.get("/", authorsHandlers.list);
+route.get("/", handlers.list);
 
-// route.get("/:author_id", authorsHandlers.single);
+route.get("/:product_id", handlers.single);
 
-// route.put("/:author_id", authorsHandlers.update);
+route.put("/:product_id", handlers.update);
 
-// route.delete("/:author_id", authorsHandlers.deleteAuthor);
+route.delete("/:product_id", handlers.deleteProduct);
 
-// route.post("/", authorsHandlers.create);
+route.post("/", handlers.create);
 
-// export default route;
+export default route;
