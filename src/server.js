@@ -2,7 +2,7 @@ import express from "express";
 
 import cors from "cors";
 
-import services from "./services/index.js";
+// import services from "./services/index.js";
 
 import createDefaultTables from "./scripts/create-tables.js";
 
@@ -14,11 +14,11 @@ app.use(cors());
 
 const { PORT } = process.env;
 
-app.use("/", services);
+// app.use("/", services);
 
 app.listen(PORT, async () => {
 	await createDefaultTables();
-	console.log(`✅ Server is running on port  ${PORT}`);
+	console.log(`Server is running on port  ${PORT}`);
 });
 
-app.on("error", (error) => console.log(`❌ Server is failed  :  ${error}`));
+app.on("error", (error) => console.log(`Server is failed  :  ${error}`));
