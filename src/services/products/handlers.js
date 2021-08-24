@@ -29,10 +29,10 @@ export const create = async (req, res, next) => { // POST
 export const single = async (req, res, next) => { // GET 1
 	try {
 		const { product_id } = req.params;
-		const product = await db.query(
-			`SELECT * FROM products WHERE product_id=${product_id};`
+		const products = await db.query(
+			`SELECT * FROM products WHERE id=${product_id};`
 		);
-		const [found, ...rest] = product.rows;
+		const [found, ...rest] = products.rows;
 
 		res.status(found ? 200 : 404).send(found);
 	} catch (error) {
@@ -44,18 +44,18 @@ export const update = async (req, res, next) => { // PUT TO 1
 	try {
 		const { product_id } = req.params;
 		const { name, description, brand, image_url, price, category } = req.body;
-		const product = await db.query(
+		const products = await db.query(
 			`UPDATE products
 			 SET name ='${name}',
 			 description = '${description}',
 			 brand = '${brand}',
-            image_url = '${image_url}',
-            price = '${price}',
-            category = '${category}',
+             image_url = '${image_url}',
+             price = '${price}',
+             category = '${category}',
 			 updated_at = NOW(),
-			 WHERE products_id=${product_id} RETURNING *;`
+			 WHERE id=${product_id} RETURNING *;`
 		);
-		const [found, ...rest] = product.rows;
+		const [found, ...rest] = products.rows;
 		res.status(found ? 200 : 400).send(found);
 	} catch (error) {
 		res.status(500).send(error);
@@ -68,7 +68,7 @@ export const deleteProduct = async (req, res, next) => { // DELETE
 		const { name, description, brand, image_url, price, category } = req.body;
 		const dbResult = await db.query(
 			`DELETE FROM products
-			 WHERE product_id=${product_id};`
+			 WHERE id=${product_id};`
 		);
 		res.status(dbResult.rowCount ? 200 : 400).send();
 	} catch (error) {
