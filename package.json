@@ -1,0 +1,23 @@
+{
+  "name": "strive-homework-m6d2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon -r dotenv/config -e js src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarath-97/Strive-Homework-M6D2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sarath-97/Strive-Homework-M6D2/issues"
+  },
+  "homepage": "https://github.com/Sarath-97/Strive-Homework-M6D2#readme"
+}
